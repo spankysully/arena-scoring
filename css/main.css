@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'alarm_clock';
+    src: url('fonts/alarm_clock-webfont.woff2') format('woff2'),
+         url('fonts/alarm_clock-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Burbank';
+    src: url('fonts/BurbankBigRegular-Black.woff2') format('woff2'),
+        url('fonts/BurbankBigRegular-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Burbank";
+    
+}
+
+body{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+}
+
+section{
+    background-color: #58d647;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: 1rem 1fr 1fr;
+    gap: 0.5rem;
+}
+
+section h2{
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    color: #FFF;
+    letter-spacing: 0.15rem;   
+}
+
+
+.trigger{
+    height: 120px;
+    width: 125px;
+    background-image: url(../trigger.png);
+    background-size: cover;
+    cursor: pointer;
+    color: rgb(138, 138, 229);
+    font-size: 1.2rem;
+    padding: 10px 0 0 40px ;
+    letter-spacing: -0.10rem;
+    font-family: 'alarm_clock';
+
+}
+
+.trigger--active{
+    filter: drop-shadow(2px 2px 5px rgba(31, 53, 255, 0.95)) drop-shadow(-2px -2px 5px rgba(31, 53, 255, 0.95));
+}
+
+aside{
+    background:#09123C;
+    color: #97DCFE;
+    padding: 1rem;
+}
+
+aside header{
+    position: sticky;
+    top: 1rem;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    place-items: center left;
+    color: #FFF;
+    background: #106DDD;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+aside h3{
+    place-self: center;
+}
+
+aside ul{
+    position: sticky;
+    top: 5.5rem;
+    list-style: none;
+    display: grid;
+    grid-auto-rows: 3rem;
+    gap: 0.5rem;
+}
+
+aside li{
+    background-color: #2A2E55;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+aside li span{
+    color: #fff;
+    align-self: center;
+    margin-left: auto;
+}
