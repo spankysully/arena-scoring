@@ -1,37 +1,26 @@
 $(document).ready(function(){
-    $("#settings1 > .trigger").click(function(e){
-        $(".trigger").removeClass('trigger--active');
-        $(this).addClass('trigger--active');
-
-        loadSettings1($(this).parent().attr('id'), $(this).attr('data-channel'));
+    $("section > div").click(function(e){
+        $("div").removeClass('active');
+        $(this).addClass('active');
+        $("#deviceType").html($(this).attr('class').split(' ')[0]);
+        loadSettings($(this).parent().attr('id'), $(this).attr('data-channel'));
     });
-
-    $("#settings2 > .trigger").click(function(e){
-        $(".trigger").removeClass('trigger--active');
-        $(this).addClass('trigger--active');
-
-        loadSettings2($(this).parent().attr('id'), $(this).attr('data-channel'));
-    });
-
-    $("#settings3 > .trigger").click(function(e){
-        $(".trigger").removeClass('trigger--active');
-        $(this).addClass('trigger--active');
-
-        loadSettings3($(this).parent().attr('id'), $(this).attr('data-channel'));
-    });
-
-    $("#settings4 > .trigger").click(function(e){
-        $(".trigger").removeClass('trigger--active');
-        $(this).addClass('trigger--active');
-
-        loadSettings4($(this).parent().attr('id'), $(this).attr('data-channel'));
-    });
-
 });
 
+function loadSettings(parent, trigger){
+    $('aside ul').html('');
+    console.log(`parent: ${parent}, channel: ${trigger}`)
+    for (let [key, value] of Object.entries(settings[parent][trigger])) {
+        //<li>Triggered by Player <span>OFF</span></li>
+        $(`<li style="display: none;">${key}<span>${value}</span></li>`).appendTo('aside ul').slideDown('fast');
+      }
+}
 
 
-const settings1 = {
+
+const settings = {
+    
+settings1 : {
     one:{
         'Disable When Receiving From':'CH 02',
         'Trigger When Receiving From':'CH 99',
@@ -41,95 +30,103 @@ const settings1 = {
         'Transmit Every X Triggers': '2',
         'Disable When Receiving From': 'CH 03',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 02',
+        'When Triggered Transmit On': 'CH 01',
     },
     three:{
         'Transmit Every X Triggers': '3',
         'Disable When Receiving From': 'CH 04',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 03',
+        'When Triggered Transmit On': 'CH 01',
     },
     four:{
         'Transmit Every X Triggers': '4',
         'Disable When Receiving From': 'CH 05',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 04',
+        'When Triggered Transmit On': 'CH 01',
     },
     five:{
         'Transmit Every X Triggers': '5',
         'Disable When Receiving From': 'CH 06',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 05',
+        'When Triggered Transmit On': 'CH 01',
     },
     six:{
         'Transmit Every X Triggers': '6',
         'Disable When Receiving From': 'CH 07',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 06',
+        'When Triggered Transmit On': 'CH 01',
     },
     seven:{
         'Transmit Every X Triggers': '7',
         'Disable When Receiving From': 'CH 08',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 07',
+        'When Triggered Transmit On': 'CH 01',
     },
     eight:{
         'Transmit Every X Triggers': '8',
         'Disable When Receiving From': 'CH 09',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 08',
+        'When Triggered Transmit On': 'CH 01',
     },
     nine:{
         'Transmit Every X Triggers': '9',
         'Disable When Receiving From': 'CH 10',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 09',
+        'When Triggered Transmit On': 'CH 01',
     },
     ten:{
         'Transmit Every X Triggers': '10',
         'Disable When Receiving From': 'CH 11',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 10',
+        'When Triggered Transmit On': 'CH 01',
     },
     eleven:{
         'Transmit Every X Triggers': '11',
         'Disable When Receiving From': 'CH 12',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 11',
+        'When Triggered Transmit On': 'CH 01',
     },
     twelve:{
         'Transmit Every X Triggers': '12',
         'Disable When Receiving From': 'CH 13',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 12',
+        'When Triggered Transmit On': 'CH 01',
     },
     thirteen:{
         'Transmit Every X Triggers': '13',
         'Disable When Receiving From': 'CH 14',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 13',
+        'When Triggered Transmit On': 'CH 01',
     },
     fourteen:{
         'Transmit Every X Triggers': '14',
         'Disable When Receiving From': 'CH 15',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 14',
+        'When Triggered Transmit On': 'CH 01',
     },
     fifteen:{
         'Transmit Every X Triggers': '15',
         'Disable When Receiving From': 'CH 16',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 15',
+        'When Triggered Transmit On': 'CH 01',
     },
     sixteen:{
         'Transmit Every X Triggers': '16',
         'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 16',
-    }
-};
+        'When Triggered Transmit On': 'CH 01',
+    },
+    seventeen:{
+        'Allow Weapon Fire': 'YES',
+        'Zone Width': '100',
+        'Zone Depth': '100',
+        'Zone Height': '100',
+        'Enabled At Game Start': 'YES',
+        'On Player Leaving Zone Transmit On': 'CH 100'
+    },
+},
 
 //SETTINGS VICTORY ROYALE
-const settings2 = {
+ settings2 : {
     one:{
             },
     two:{
@@ -182,7 +179,7 @@ const settings2 = {
     eight:{
         'Transmit Every X Triggers': '7',
         'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 08',
+        'Enable When Receiving From': 'CH 09',
         'Disable When Receiving From': 'CH 09',
         'Trigger When Receiving From': 'CH 100',
         'When Triggered Transmit On': 'CH 17'
@@ -249,11 +246,38 @@ const settings2 = {
         'Enable When Receiving From': 'CH 16',
         'Trigger When Receiving From': 'CH 100',
         'When Triggered Transmit On': 'CH 17'
+    },
+    seventeen:{
+        'Allow Weapon Fire': 'YES',
+        'Zone Width': '100',
+        'Zone Depth': '100',
+        'Zone Height': '100',
+        'Enabled At Game Start': 'NO',
+        'Enable When Receiving From': 'CH 17',
+        'On Player Entering Zone Transmit On': 'CH 22'
+    },
+    eighteen:{
+        'Score Value': '3',
+        'Activate When Receiving From': 'CH 22'
+    },
+    nineteen:{
+        'Message': 'Victory!: +3 Points',
+        'Time From Round Start': 'OFF',
+        'Display Time': '3 SECONDS',
+        'Show When Receiving From': 'CH 17'
+    },
+    twenty:{
+        'Delay': '2 SECONDS',
+        'Trigger When Receiving From': 'CH 22',
+        'When Triggered Transmit On': 'CH 24'
+    },
+    twentyone:{
+        'End Round When Receiving From': 'CH 24'
     }
-};
+},
 
 //SETTINGS Top 5
-const settings3 = {
+ settings3 : {
     one:{
             },
     two:{
@@ -289,7 +313,7 @@ const settings3 = {
         'Time Can Trigger': '3',
         'Transmit Every X Triggers': '3',
         'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 08',
+        'Enable When Receiving From': 'CH 09',
         'Disable When Receiving From': 'CH 09',
         'Trigger When Receiving From': 'CH 100',
         'When Triggered Transmit On': 'CH 18'
@@ -363,11 +387,37 @@ const settings3 = {
         'Enable When Receiving From': 'CH 16',
         'Trigger When Receiving From': 'CH 100',
         'When Triggered Transmit On': 'CH 18'
+    },
+    seventeen:{
+        'Allow Weapon Fire': 'YES',
+        'Zone Width': '100',
+        'Zone Depth': '100',
+        'Zone Height': '100',
+        'Enabled At Game Start': 'NO',
+        'Enable When Receiving From': 'CH 18',
+        'Disable When Receiving From': 'CH 23',
+        'On Player Entering Zone Transmit On': 'CH 20'
+    },
+    eighteen:{
+        'Score Value': '1',
+        'Activate When Receiving From': 'CH 20'
+    },
+    nineteen:{
+        'Message': 'Top 5: +1 Point1',
+        'Message Recipient': 'Triggering Player',
+        'Time From Round Start': 'OFF',
+        'Display Time': '3 SECONDS',
+        'Show When Receiving From': 'CH 18'
+    },
+    twenty:{
+        'Delay': '1 SECOND',
+        'Trigger When Receiving From': 'CH 18',
+        'When Triggered Transmit On': 'CH 23'
     }
-};
+},
 
 //SETTINGS VICTORY ROYALE
-const settings4 = {
+ settings4 : {
     one:{
             },
     two:{
@@ -414,7 +464,7 @@ const settings4 = {
         'Time Can Trigger': '5',
         'Transmit Every X Triggers': '5',
         'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 08',
+        'Enable When Receiving From': 'CH 09',
         'Disable When Receiving From': 'CH 09',
         'Trigger When Receiving From': 'CH 100',
         'When Triggered Transmit On': 'CH 19'
@@ -486,37 +536,33 @@ const settings4 = {
         'Enable When Receiving From': 'CH 16',
         'Trigger When Receiving From': 'CH 100',
         'When Triggered Transmit On': 'CH 19'
+    },
+    seventeen:{
+        'Allow Weapon Fire': 'YES',
+        'Zone Width': '100',
+        'Zone Depth': '100',
+        'Zone Height': '100',
+        'Enabled At Game Start': 'NO',
+        'Enable When Receiving From': 'CH 19',
+        'Disable When Receiving From': 'CH 23',
+        'On Player Entering Zone Transmit On': 'CH 21'
+    },
+    eighteen:{
+        'Score Value': '31',
+        'Activate When Receiving From': 'CH 21'
+    },
+    nineteen:{
+        'Message': 'Top 5: +1 Point1',
+        'Message Recipient': 'Triggering Player',
+        'Time From Round Start': 'OFF',
+        'Display Time': '3 SECONDS',
+        'Show When Receiving From': 'CH 19'
+    },
+    twenty:{
+        'Delay': '1 SECOND',
+        'Trigger When Receiving From': 'CH 19',
+        'When Triggered Transmit On': 'CH 23'
     }
+}
 };
 
-function loadSettings1(parent, channel){
-    $('aside ul').html('');
-    for (let [key, value] of Object.entries(settings1[channel])) {
-        //<li>Triggered by Player <span>OFF</span></li>
-        $(`<li style="display: none;">${key}<span>${value}</span></li>`).appendTo('aside ul').slideDown('fast');
-      }
-}
-
-function loadSettings2(parent, channel){
-    $('aside ul').html('');
-    for (let [key, value] of Object.entries(settings2[channel])) {
-        //<li>Triggered by Player <span>OFF</span></li>
-        $(`<li style="display: none;">${key}<span>${value}</span></li>`).appendTo('aside ul').slideDown('fast');
-      }
-}
-
-function loadSettings3(parent, channel){
-    $('aside ul').html('');
-    for (let [key, value] of Object.entries(settings3[channel])) {
-        //<li>Triggered by Player <span>OFF</span></li>
-        $(`<li style="display: none;">${key}<span>${value}</span></li>`).appendTo('aside ul').slideDown('fast');
-      }
-}
-
-function loadSettings4(parent, channel){
-    $('aside ul').html('');
-    for (let [key, value] of Object.entries(settings4[channel])) {
-        //<li>Triggered by Player <span>OFF</span></li>
-        $(`<li style="display: none;">${key}<span>${value}</span></li>`).appendTo('aside ul').slideDown('fast');
-      }
-}
