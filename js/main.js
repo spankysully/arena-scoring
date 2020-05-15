@@ -22,59 +22,69 @@ const settings = {
     
 settings1 : {
     one:{
+        'Time Can Trigger': '1',
         'Disable When Receiving From':'CH 02',
         'Trigger When Receiving From':'CH 99',
         'When Triggered Transmit On':'CH 01',
     },
     two:{
+        'Time Can Trigger': '2',
         'Transmit Every X Triggers': '2',
         'Disable When Receiving From': 'CH 03',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 02',
     },
     three:{
+        'Time Can Trigger': '3',
         'Transmit Every X Triggers': '3',
         'Disable When Receiving From': 'CH 04',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 03',
     },
     four:{
+        'Time Can Trigger': '4',
         'Transmit Every X Triggers': '4',
         'Disable When Receiving From': 'CH 05',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 04',
     },
     five:{
+        'Time Can Trigger': '5',
         'Transmit Every X Triggers': '5',
         'Disable When Receiving From': 'CH 06',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 05',
     },
     six:{
+        'Time Can Trigger': '6',
         'Transmit Every X Triggers': '6',
         'Disable When Receiving From': 'CH 07',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 06',
     },
     seven:{
+        'Time Can Trigger': '7',
         'Transmit Every X Triggers': '7',
         'Disable When Receiving From': 'CH 08',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 07',
     },
     eight:{
+        'Time Can Trigger': '8',
         'Transmit Every X Triggers': '8',
         'Disable When Receiving From': 'CH 09',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 08',
     },
     nine:{
+        'Time Can Trigger': '9',
         'Transmit Every X Triggers': '9',
         'Disable When Receiving From': 'CH 10',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 09',
     },
     ten:{
+        'Time Can Trigger': '10',
         'Transmit Every X Triggers': '10',
         'Disable When Receiving From': 'CH 11',
         'Trigger When Receiving From': 'CH 99',
@@ -211,6 +221,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     eleven:{
+        'Time Can Trigger': '10',
         'Transmit Every X Triggers': '10',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 11',
