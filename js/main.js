@@ -130,6 +130,8 @@ settings1 : {
     one:{
             },
     two:{
+        'Time Can Trigger': '1',
+        'Transmit Every X Triggers': '1',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 02',
         'Disable When Receiving From': 'CH 03',
@@ -137,6 +139,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     three:{
+        'Time Can Trigger': '2',
         'Transmit Every X Triggers': '2',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 03',
@@ -145,6 +148,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     four:{
+        'Time Can Trigger': '3',
         'Transmit Every X Triggers': '3',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 04',
@@ -153,6 +157,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     five:{
+        'Time Can Trigger': '4',
         'Transmit Every X Triggers': '4',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 05',
@@ -161,6 +166,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     six:{
+        'Time Can Trigger': '5',
         'Transmit Every X Triggers': '5',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 06',
@@ -169,6 +175,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     seven:{
+        'Time Can Trigger': '6',
         'Transmit Every X Triggers': '6',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 07',
@@ -177,6 +184,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     eight:{
+        'Time Can Trigger': '7',
         'Transmit Every X Triggers': '7',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 08',
@@ -185,6 +193,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     nine:{
+        'Time Can Trigger': '8',
         'Transmit Every X Triggers': '8',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 09',
@@ -193,6 +202,7 @@ settings1 : {
         'When Triggered Transmit On': 'CH 17'
     },
     ten:{
+        'Time Can Trigger': '9',
         'Transmit Every X Triggers': '9',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 10',
