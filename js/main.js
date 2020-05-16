@@ -315,6 +315,7 @@ settings1 : {
     },
     six:{
         'Time Can Trigger': '1',
+        'Transmit Every X Triggers': '1',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 06',
         'Disable When Receiving From': 'CH 07',
@@ -448,6 +449,8 @@ settings1 : {
 
     },
     four:{
+        'Time Can Trigger': '1',
+        'Transmit Every X Triggers': '1',
         'Enabled On Game Start': 'DISABLED',
         'Enable When Receiving From': 'CH 04',
         'Disable When Receiving From': 'CH 05',
