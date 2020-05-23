@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("section > div").click(function(e){
+        $(".popup").hide();
         $("div").removeClass('active');
         $(this).addClass('active');
         $("#deviceType").html($(this).attr('class').split(' ')[0]);
@@ -279,7 +280,9 @@ settings1 : {
     },
     eighteen:{
         'Score Value': '3',
-        'Activate When Receiving From': 'CH 22'
+        'Activate When Receiving From': 'CH 22',
+        'Transmit On Score': '3',
+        'On Score Output On': 'CH 24'
     },
     nineteen:{
         'Message': 'Victory!: +3 Points',
@@ -289,7 +292,7 @@ settings1 : {
     },
     twenty:{
         'Delay': '2 SECONDS',
-        'Trigger When Receiving From': 'CH 22',
+        'Trigger When Receiving From': 'CH 17',
         'When Triggered Transmit On': 'CH 24'
     },
     twentyone:{
@@ -572,11 +575,11 @@ settings1 : {
         'On Player Entering Zone Transmit On': 'CH 21'
     },
     eighteen:{
-        'Score Value': '31',
+        'Score Value': '3',
         'Activate When Receiving From': 'CH 21'
     },
     nineteen:{
-        'Message': 'Top 5: +1 Point1',
+        'Message': 'Top 5: +1 Point',
         'Message Recipient': 'Triggering Player',
         'Time From Round Start': 'OFF',
         'Display Time': '3 SECONDS',
