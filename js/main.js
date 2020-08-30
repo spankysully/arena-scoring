@@ -20,7 +20,8 @@ function loadSettings(parent, trigger){
 
 
 const settings = {
-    
+
+//SETTINGS PLAYER COUNTING    
 settings1 : {
     one:{
         'Time Can Trigger': '1',
@@ -441,7 +442,7 @@ settings1 : {
     }
 },
 
-//SETTINGS VICTORY ROYALE
+//SETTINGS Top 3
  settings4 : {
     one:{
             },
@@ -579,7 +580,7 @@ settings1 : {
         'Activate When Receiving From': 'CH 21'
     },
     nineteen:{
-        'Message': 'Top 5: +1 Point',
+        'Message': 'Top 3: +3 Point',
         'Message Recipient': 'Triggering Player',
         'Time From Round Start': 'OFF',
         'Display Time': '3 SECONDS',
