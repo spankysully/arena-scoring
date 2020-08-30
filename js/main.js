@@ -429,7 +429,7 @@ settings1 : {
         'Activate When Receiving From': 'CH 20'
     },
     nineteen:{
-        'Message': 'Top 5: +1 Point1',
+        'Message': 'Top 5: +1 Point',
         'Message Recipient': 'Triggering Player',
         'Time From Round Start': 'OFF',
         'Display Time': '3 SECONDS',
