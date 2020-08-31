@@ -53,6 +53,7 @@ body{
 
 
 .island-code{
+    align: right;
     position: fixed;
     bottom: 20px;
     height: 3em;
