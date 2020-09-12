@@ -41,8 +41,6 @@ settings1 : {
         'Enable When Receiving From': 'CH 01',
         'On Player Entering Zone Transmit On': 'CH 02',
         'On Player Leaving Zone Transmit On': 'CH 03',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 02',
     },
     three:{
         '*** This tracker recreates the Last Man Standing setting ***' :'',
