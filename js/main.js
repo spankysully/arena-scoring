@@ -68,6 +68,10 @@ settings1 : {
         'Transmit On Score': '3',
         'Activate When Receiving From': 'CH 05',
         'On Score Transmit To': 'CH 06',
+    },
+    six:{
+        '*** A Round Settings Device could also be used for this purpose':'',
+        'End Round When Receiving From:': 'CH 06'
     }
 },
 
