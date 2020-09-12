@@ -1,4 +1,9 @@
 $(document).ready(function(){
+
+    $(".popup span.close").click(function(){
+        $(".popup").hide();
+    });
+
     $("section > div").click(function(e){
         $(".popup").hide();
         $("div").removeClass('active');
@@ -21,574 +26,144 @@ function loadSettings(parent, trigger){
 
 const settings = {
     
+    
+//Player COUNTING/ VR
 settings1 : {
     one:{
-        'Time Can Trigger': '1',
-        'Disable When Receiving From':'CH 02',
-        'Trigger When Receiving From':'CH 99',
-        'When Triggered Transmit On':'CH 01',
+        '*** This must be activated by a sequencer at game start ***' :'',
+        'When Triggered Transmit On':'CH 01'        
     },
     two:{
-        'Time Can Trigger': '2',
-        'Transmit Every X Triggers': '2',
-        'Disable When Receiving From': 'CH 03',
+        '*** This mutator counts players/deaths. MUST cover full map. ***' :'',
+        'Allow Weapon Fire': 'YES',
+        'Enabled At Game Start': 'NO',
+        'Safe Team': '1',
+        'Enable When Receiving From': 'CH 01',
+        'On Player Entering Zone Transmit On': 'CH 02',
+        'On Player Leaving Zone Transmit On': 'CH 03',
         'Trigger When Receiving From': 'CH 99',
         'When Triggered Transmit On': 'CH 02',
     },
     three:{
-        'Time Can Trigger': '3',
-        'Transmit Every X Triggers': '3',
-        'Disable When Receiving From': 'CH 04',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 03',
+        '*** This tracker recreates the Last Man Standing setting ***' :'',
+        'Stat To Track': 'CHANNEL',
+        'Target Value': '0',
+        'Sharing': 'ALL',
+        'Description Text': 'Enemies Remaining',
+        'Show Progress': 'Remaining',
+        'Increment Progress When Receiving From': 'CH 03',
+        'Increase Target Value When Receiving From': 'CH 02',
+        'When Complete Transmit On': 'CH 04',
     },
     four:{
-        'Time Can Trigger': '4',
-        'Transmit Every X Triggers': '4',
-        'Disable When Receiving From': 'CH 05',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 04',
+        '*** This mutator awards the Victory Points ***' :'',
+        'Allow Weapon Fire': 'YES',
+        'Enabled At Game Start': 'NO',
+        'Enable When Receiving From': 'CH 04',
+        'On Player Entering Zone Transmit On': 'CH 05',
     },
     five:{
-        'Time Can Trigger': '5',
-        'Transmit Every X Triggers': '5',
-        'Disable When Receiving From': 'CH 06',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 05',
-    },
-    six:{
-        'Time Can Trigger': '6',
-        'Transmit Every X Triggers': '6',
-        'Disable When Receiving From': 'CH 07',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 06',
-    },
-    seven:{
-        'Time Can Trigger': '7',
-        'Transmit Every X Triggers': '7',
-        'Disable When Receiving From': 'CH 08',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 07',
-    },
-    eight:{
-        'Time Can Trigger': '8',
-        'Transmit Every X Triggers': '8',
-        'Disable When Receiving From': 'CH 09',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 08',
-    },
-    nine:{
-        'Time Can Trigger': '9',
-        'Transmit Every X Triggers': '9',
-        'Disable When Receiving From': 'CH 10',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 09',
-    },
-    ten:{
-        'Time Can Trigger': '10',
-        'Transmit Every X Triggers': '10',
-        'Disable When Receiving From': 'CH 11',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 10',
-    },
-    eleven:{
-        'Transmit Every X Triggers': '11',
-        'Disable When Receiving From': 'CH 12',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 11',
-    },
-    twelve:{
-        'Transmit Every X Triggers': '12',
-        'Disable When Receiving From': 'CH 13',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 12',
-    },
-    thirteen:{
-        'Transmit Every X Triggers': '13',
-        'Disable When Receiving From': 'CH 14',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 13',
-    },
-    fourteen:{
-        'Transmit Every X Triggers': '14',
-        'Disable When Receiving From': 'CH 15',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 14',
-    },
-    fifteen:{
-        'Transmit Every X Triggers': '15',
-        'Disable When Receiving From': 'CH 16',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 15',
-    },
-    sixteen:{
-        'Transmit Every X Triggers': '16',
-        'Trigger When Receiving From': 'CH 99',
-        'When Triggered Transmit On': 'CH 16',
-    },
-    seventeen:{
-        'Allow Weapon Fire': 'YES',
-        'Zone Width': '100',
-        'Zone Depth': '100',
-        'Zone Height': '100',
-        'Enabled At Game Start': 'YES',
-        'On Player Leaving Zone Transmit On': 'CH 100'
-    },
+        '*** This score manager awards the Victory Points. Score Value == Transmit On Score ***' :'',
+        'Score Value': '3',
+        'Transmit On Score': '3',
+        'Activate When Receiving From': 'CH 05',
+        'On Score Transmit To': 'CH 06',
+    }
 },
 
-//SETTINGS VICTORY ROYALE
+//SETTINGS TOP 5
  settings2 : {
     one:{
-            },
-    two:{
-        'Time Can Trigger': '1',
-        'Transmit Every X Triggers': '1',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 02',
-        'Disable When Receiving From': 'CH 03',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    three:{
-        'Time Can Trigger': '2',
-        'Transmit Every X Triggers': '2',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 03',
-        'Disable When Receiving From': 'CH 04',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    four:{
-        'Time Can Trigger': '3',
-        'Transmit Every X Triggers': '3',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 04',
-        'Disable When Receiving From': 'CH 05',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    five:{
-        'Time Can Trigger': '4',
-        'Transmit Every X Triggers': '4',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 05',
-        'Disable When Receiving From': 'CH 06',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    six:{
+        '*** This trigger enables the Top 5 Tracker ***' :'',
         'Time Can Trigger': '5',
         'Transmit Every X Triggers': '5',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 06',
-        'Disable When Receiving From': 'CH 07',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
+        'Trigger When Receiving From': 'CH 02',
+        'When Triggered Transmit On': 'CH 07'
     },
-    seven:{
-        'Time Can Trigger': '6',
-        'Transmit Every X Triggers': '6',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 07',
-        'Disable When Receiving From': 'CH 08',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
+     two:{
+        '*** This tracker recreates the Last Man Standing setting ***' :'',
+        'Stat To Track': 'CHANNEL',
+        'Target Value': '1',
+        'Sharing': 'ALL',
+        'Show On HUD': 'NO',
+        'Show Progress': 'Off',
+        'Increment Progress When Receiving From': 'CH 03',
+        'Assign When Receiving From': 'CH 07',
+        'Increase Target Value When Receiving From': 'CH 02',
+        'When Complete Transmit On': 'CH 08',
     },
-    eight:{
-        'Time Can Trigger': '7',
-        'Transmit Every X Triggers': '7',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 08',
-        'Disable When Receiving From': 'CH 09',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    nine:{
-        'Time Can Trigger': '8',
-        'Transmit Every X Triggers': '8',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 09',
-        'Disable When Receiving From': 'CH 10',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    ten:{
-        'Time Can Trigger': '9',
-        'Transmit Every X Triggers': '9',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 10',
-        'Disable When Receiving From': 'CH 11',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    eleven:{
-        'Time Can Trigger': '10',
-        'Transmit Every X Triggers': '10',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 11',
-        'Disable When Receiving From': 'CH 12',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    twelve:{
-        'Transmit Every X Triggers': '11',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 12',
-        'Disable When Receiving From': 'CH 13',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    thirteen:{
-        'Transmit Every X Triggers': '12',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 13',
-        'Disable When Receiving From': 'CH 14',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    fourteen:{
-        'Transmit Every X Triggers': '13',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 14',
-        'Disable When Receiving From': 'CH 15',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    fifteen:{
-        'Transmit Every X Triggers': '14',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 15',
-        'Disable When Receiving From': 'CH 16',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    sixteen:{
-        'Transmit Every X Triggers': '15',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 16',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 17'
-    },
-    seventeen:{
-        'Allow Weapon Fire': 'YES',
-        'Zone Width': '100',
-        'Zone Depth': '100',
-        'Zone Height': '100',
-        'Enabled At Game Start': 'NO',
-        'Enable When Receiving From': 'CH 17',
-        'On Player Entering Zone Transmit On': 'CH 22'
-    },
-    eighteen:{
-        'Score Value': '3',
-        'Activate When Receiving From': 'CH 22',
-        'Transmit On Score': '3',
-        'On Score Output On': 'CH 24'
-    },
-    nineteen:{
-        'Message': 'Victory!: +3 Points',
+    three:{
+        'Message': 'Top 5!: +1 Points',
         'Time From Round Start': 'OFF',
         'Display Time': '3 SECONDS',
-        'Show When Receiving From': 'CH 17'
+        'Show When Receiving From': 'CH 08'
     },
-    twenty:{
-        'Delay': '2 SECONDS',
-        'Trigger When Receiving From': 'CH 17',
-        'When Triggered Transmit On': 'CH 24'
-    },
-    twentyone:{
-        'End Round When Receiving From': 'CH 24'
+    four:{
+        '*** This trigger turns on the scoring mutator ***' :'',
+        'Time Can Trigger': '1',
+        'Transmit Every X Triggers': '1',
+        'Trigger When Receiving From': 'CH 08',
+        'When Triggered Transmit On': 'CH 11'
     }
 },
 
-//SETTINGS Top 5
+//SETTINGS Top 3
  settings3 : {
     one:{
-            },
-    two:{
-
-    },
-    three:{
-
-    },
-    four:{
-
-    },
-    five:{
-
-    },
-    six:{
-        'Time Can Trigger': '1',
-        'Transmit Every X Triggers': '1',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 06',
-        'Disable When Receiving From': 'CH 07',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    seven:{
-        'Time Can Trigger': '2',
-        'Transmit Every X Triggers': '2',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 07',
-        'Disable When Receiving From': 'CH 08',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    eight:{
+        '*** This trigger enables the Top 3 Tracker ***' :'',
         'Time Can Trigger': '3',
         'Transmit Every X Triggers': '3',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 08',
-        'Disable When Receiving From': 'CH 09',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
+        'Trigger When Receiving From': 'CH 02',
+        'When Triggered Transmit On': 'CH 09'
     },
-    nine:{
-        'Time Can Trigger': '4',
-        'Transmit Every X Triggers': '4',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 09',
-        'Disable When Receiving From': 'CH 10',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
+     two:{
+        '*** This tracker recreates the Last Man Standing setting ***' :'',
+        'Stat To Track': 'CHANNEL',
+        'Target Value': '1',
+        'Sharing': 'ALL',
+        'Show On HUD': 'NO',
+        'Show Progress': 'Off',
+        'Increment Progress When Receiving From': 'CH 03',
+        'Assign When Receiving From': 'CH 09',
+        'Increase Target Value When Receiving From': 'CH 02',
+        'When Complete Transmit On': 'CH 10',
     },
-    ten:{
-        'Time Can Trigger': '5',
-        'Transmit Every X Triggers': '5',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 10',
-        'Disable When Receiving From': 'CH 11',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    eleven:{
-        'Time Can Trigger': '6',
-        'Transmit Every X Triggers': '6',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 11',
-        'Disable When Receiving From': 'CH 12',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    twelve:{
-        'Time Can Trigger': '7',
-        'Transmit Every X Triggers': '7',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 12',
-        'Disable When Receiving From': 'CH 13',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    thirteen:{
-        'Time Can Trigger': '8',
-        'Transmit Every X Triggers': '8',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 13',
-        'Disable When Receiving From': 'CH 14',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    fourteen:{
-        'Time Can Trigger': '9',
-        'Transmit Every X Triggers': '9',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 14',
-        'Disable When Receiving From': 'CH 15',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    fifteen:{
-        'Time Can Trigger': '10',
-        'Transmit Every X Triggers': '10',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 15',
-        'Disable When Receiving From': 'CH 16',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    sixteen:{
-        'Transmit Every X Triggers': '11',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 16',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 18'
-    },
-    seventeen:{
-        'Allow Weapon Fire': 'YES',
-        'Zone Width': '100',
-        'Zone Depth': '100',
-        'Zone Height': '100',
-        'Enabled At Game Start': 'NO',
-        'Enable When Receiving From': 'CH 18',
-        'Disable When Receiving From': 'CH 23',
-        'On Player Entering Zone Transmit On': 'CH 20'
-    },
-    eighteen:{
-        'Score Value': '1',
-        'Activate When Receiving From': 'CH 20'
-    },
-    nineteen:{
-        'Message': 'Top 5: +1 Point1',
-        'Message Recipient': 'Triggering Player',
+    three:{
+        'Message': 'Top 3!: +1 Points',
         'Time From Round Start': 'OFF',
         'Display Time': '3 SECONDS',
-        'Show When Receiving From': 'CH 18'
+        'Show When Receiving From': 'CH 10'
     },
-    twenty:{
-        'Delay': '1 SECOND',
-        'Trigger When Receiving From': 'CH 18',
-        'When Triggered Transmit On': 'CH 23'
+    four:{
+        '*** This trigger turns on the scoring mutator ***' :'',
+        'Time Can Trigger': '1',
+        'Transmit Every X Triggers': '1',
+        'Trigger When Receiving From': 'CH 10',
+        'When Triggered Transmit On': 'CH 11'
     }
 },
 
-//SETTINGS VICTORY ROYALE
+//SETTINGS TOP 3
  settings4 : {
+   
     one:{
-            },
+        '*** This mutator awards the Top 3/Top 5 Points ***' :'',
+        'Allow Weapon Fire': 'YES',
+        'Enabled At Game Start': 'NO',
+        'Enable When Receiving From': 'CH 11',
+        'Disable When Receiving From': 'CH 13',
+        'On Player Entering Zone Transmit On': 'CH 12',
+    },
     two:{
-
+        'Score Value': '1',
+        'Activate When Receiving From': 'CH 12'
     },
     three:{
-
-    },
-    four:{
-        'Time Can Trigger': '1',
-        'Transmit Every X Triggers': '1',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 04',
-        'Disable When Receiving From': 'CH 05',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    five:{
-        'Time Can Trigger': '2',
-        'Transmit Every X Triggers': '2',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 05',
-        'Disable When Receiving From': 'CH 06',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    six:{
-        'Time Can Trigger': '3',
-        'Transmit Every X Triggers': '3',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 06',
-        'Disable When Receiving From': 'CH 07',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    seven:{
-        'Time Can Trigger': '4',
-        'Transmit Every X Triggers': '4',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 07',
-        'Disable When Receiving From': 'CH 08',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    eight:{
-        'Time Can Trigger': '5',
-        'Transmit Every X Triggers': '5',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 08',
-        'Disable When Receiving From': 'CH 09',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    nine:{
-        'Time Can Trigger': '6',
-        'Transmit Every X Triggers': '6',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 09',
-        'Disable When Receiving From': 'CH 10',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    ten:{
-        'Time Can Trigger': '7',
-        'Transmit Every X Triggers': '7',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 10',
-        'Disable When Receiving From': 'CH 11',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    eleven:{
-        'Time Can Trigger': '8',
-        'Transmit Every X Triggers': '8',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 11',
-        'Disable When Receiving From': 'CH 12',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    twelve:{
-        'Time Can Trigger': '9',
-        'Transmit Every X Triggers': '9',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 12',
-        'Disable When Receiving From': 'CH 13',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    thirteen:{
-        'Time Can Trigger': '10',
-        'Transmit Every X Triggers': '10',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 13',
-        'Disable When Receiving From': 'CH 14',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    fourteen:{
-        'Transmit Every X Triggers': '11',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 14',
-        'Disable When Receiving From': 'CH 15',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    fifteen:{
-        'Transmit Every X Triggers': '12',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 15',
-        'Disable When Receiving From': 'CH 16',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    sixteen:{
-        'Transmit Every X Triggers': '13',
-        'Enabled On Game Start': 'DISABLED',
-        'Enable When Receiving From': 'CH 16',
-        'Trigger When Receiving From': 'CH 100',
-        'When Triggered Transmit On': 'CH 19'
-    },
-    seventeen:{
-        'Allow Weapon Fire': 'YES',
-        'Zone Width': '100',
-        'Zone Depth': '100',
-        'Zone Height': '100',
-        'Enabled At Game Start': 'NO',
-        'Enable When Receiving From': 'CH 19',
-        'Disable When Receiving From': 'CH 23',
-        'On Player Entering Zone Transmit On': 'CH 21'
-    },
-    eighteen:{
-        'Score Value': '3',
-        'Activate When Receiving From': 'CH 21'
-    },
-    nineteen:{
-        'Message': 'Top 5: +1 Point',
-        'Message Recipient': 'Triggering Player',
-        'Time From Round Start': 'OFF',
-        'Display Time': '3 SECONDS',
-        'Show When Receiving From': 'CH 19'
-    },
-    twenty:{
+        '*** This trigger turns off the scoring mutator ***' :'',
         'Delay': '1 SECOND',
-        'Trigger When Receiving From': 'CH 19',
-        'When Triggered Transmit On': 'CH 23'
+        'Transmit Every X Triggers': '3',
+        'Trigger When Receiving From': 'CH 11',
+        'When Triggered Transmit On': 'CH 13'
     }
 }
 };

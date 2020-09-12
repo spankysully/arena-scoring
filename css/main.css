@@ -31,7 +31,7 @@ body{
 .popup{
     position: fixed;
     width: 100%;
-    height: 3em;
+    height: 5em;
     font-size: 3em;
     background-color: white;
     display: grid;
@@ -39,6 +39,8 @@ body{
     z-index: 999;
     top: 50%;
     transform: translateY(-50%);
+    text-align: center;
+    display: none;
 }
 
 .popup p{
@@ -46,21 +48,35 @@ body{
     margin-top: -1em;
 }
 
-.popup span{
+.popup span.code{
     font-size: 0.5em;
     margin-top: -1em;
+}
+.popup span.close{
+    font-size: 1em;
+    margin-top: -1em;
+    position: absolute;
+    top: 1.5em;
+    right: 0.5em;
+    cursor: pointer;
 }
 
 
 .island-code{
     position: fixed;
     bottom: 20px;
-    height: 3em;
-    width:400px;
-    padding: 1em 1em;
+    height: 3.8em;
+    width: 450px;
+    padding: 0.8em 1em 1em 1em;
     font-size: 1.5em;
     background-color: rgb(251, 235, 51) !important;
     clip-path: polygon(91% 8%, 100% 0, 100% 100%, 88% 93%, 90% 100%, 0 100%, 6% 90%, 0 92%, 0 0, 94% 0);
+    z-index: 999;
+}
+
+.island-code img{
+    transform: translateY(5px);
+    margin-right: 4px;
 }
 
 section{
@@ -71,6 +87,11 @@ section{
     grid-template-rows: 1rem 1fr 1fr;
     gap: 0.5rem;
 }
+
+section:nth-of-type(odd){
+    background-color: #4bb83d;
+}
+
 
 section h2{
     grid-row: 1/-1;
@@ -91,6 +112,16 @@ section h2{
     padding: 10px 0 0 40px ;
     letter-spacing: -0.10rem;
     font-family: 'alarm_clock';
+}
+
+.TRACKER{
+    height: 120px;
+    width: 125px;
+    background-image: url(../tracker.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
 }
 
 .active{
@@ -204,7 +235,7 @@ aside li span{
 
 .settings{
     grid-template-columns: 1fr;
-    background:#09123C;
+    background:#09123C !important;
     color: #97DCFE;
     padding: 1rem;
 }
