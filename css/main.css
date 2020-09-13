@@ -229,12 +229,23 @@ aside h3{
 }
 
 aside ul{
-    position: sticky;
-    top: 5.5rem;
+    /* position: sticky; */
+    /* top: 5.5rem; */
     list-style: none;
     display: grid;
     grid-auto-rows: 3rem;
     gap: 0.5rem;
+}
+
+aside .header{
+    background: #106DDD;
+    display: block;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    /* justify-items: center; */
+    color: #FFF;
+
 }
 
 aside li{
@@ -265,7 +276,7 @@ aside .close{
 }
 
 .settings h2{
-    position: sticky;
+    /* position: sticky; */
     top: 1rem;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -326,20 +337,48 @@ aside .close{
     aside{
         position: fixed;
         left: 100%;
-        padding-left: 50px;
+        /* padding-left: 50px; */
         width:100vw;
         height: 100vh;
         z-index: 9999;
         overflow-y: scroll;
+        padding: 0;
+    }
+
+    aside .header{
+        background: #106DDD;
+        display: block;
+        display: grid;
+        grid-template-columns: 30px 2fr 1fr;
+        grid-template-rows: 1fr;
+        justify-items: center;
+        color: #FFF;
+    }
+
+    aside .header span{
+        display: block;
     }
 
     aside .close{
         display: block;
-        position: absolute;
-        top: 12px;
-        left: 15px;
-        font-size: 2.5rem;
+        width: 100%;
+        text-align: center;
+        font-size: 1.8rem;
+        background-color: #FFF;
+        color: #106DDD;
+        line-height: 1.2;
         cursor: pointer;
+       
+    }
+
+    aside #deviceType{
+        width: 100%;
+        text-align: center;
+    }
+
+    aside li{
+        padding-right: 0.5rem ;
+        padding-left: 0.5rem;
     }
 
     .island-code{

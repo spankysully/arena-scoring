@@ -15,13 +15,14 @@ $(document).ready(function(){
         $(".popup").hide();
         $("div").removeClass('active');
         $(this).addClass('active');
-        $("#deviceType").html($(this).attr('class').split(' ')[0]);
-        loadSettings($(this).parent().attr('id'), $(this).attr('data-channel'));
+        let deviceType = $(this).attr('class').split(' ')[0];
+        loadSettings($(this).parent().attr('id'), $(this).attr('data-channel'), deviceType);
     });
 });
 
-function loadSettings(parent, trigger){
+function loadSettings(parent, trigger, deviceType){
     $('aside ul').html('');
+    $(`<li style='display: none' class='header'><span class='close'>X</span>CUSTOMIZE<span id='deviceType'>${deviceType}</span></li>`).appendTo('aside ul').slideDown('fast');
     console.log(`parent: ${parent}, channel: ${trigger}`)
     for (let [key, value] of Object.entries(settings[parent][trigger])) {
         //<li>Triggered by Player <span>OFF</span></li>
@@ -31,13 +32,15 @@ function loadSettings(parent, trigger){
     if (width < 1150){
         $("aside").css({"transform": "translateX(-100%)"});
     }
+
+    $("aside .close").click(function(){
+        if (width < 1150){
+            $("aside").css({"transform": "translateX(0)"});
+        }
+    });
 }
 
-$("aside .close").click(function(){
-    if (width < 1150){
-        $("aside").css({"transform": "translateX(0)"});
-    }
-});
+
 
 $(".island-code .close").click(function(){
     $(".island-code").hide();
