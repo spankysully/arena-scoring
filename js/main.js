@@ -1,4 +1,11 @@
+var width = $(window).width();
+
 $(document).ready(function(){
+
+
+    $(window).resize(function() {
+        width = $(window).width();
+    });
 
     $(".popup span.close").click(function(){
         $(".popup").hide();
@@ -20,7 +27,27 @@ function loadSettings(parent, trigger){
         //<li>Triggered by Player <span>OFF</span></li>
         $(`<li style="display: none;">${key}<span>${value}</span></li>`).appendTo('aside ul').slideDown('fast');
       }
+
+    if (width < 1150){
+        $("aside").css({"transform": "translateX(-100%)"});
+    }
 }
+
+$("aside .close").click(function(){
+    if (width < 1150){
+        $("aside").css({"transform": "translateX(0)"});
+    }
+});
+
+$(".island-code .close").click(function(){
+    $(".island-code").hide();
+});
+
+
+
+
+
+
 
 
 
@@ -61,7 +88,7 @@ settings1 : {
         'On Player Entering Zone Transmit On': 'CH 05',
     },
     five:{
-        '*** This score manager awards the Victory Points. Score Value == Transmit On Score ***' :'',
+        '*** This awards the Victory Points. Score Value == Transmit On Score ***' :'',
         'Score Value': '3',
         'Transmit On Score': '3',
         'Activate When Receiving From': 'CH 05',

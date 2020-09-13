@@ -28,6 +28,14 @@ body{
     grid-template-columns: 1.5fr 1fr;
 }
 
+h1{
+    background-color: #58d647;
+    color: #FFF;
+    text-align:center;
+    font-size: 3rem;
+    padding: 1em;
+}
+
 .popup{
     position: fixed;
     width: 100%;
@@ -66,12 +74,21 @@ body{
     position: fixed;
     bottom: 20px;
     height: 3.8em;
-    width: 450px;
+    width: 470px;
     padding: 0.8em 1em 1em 1em;
     font-size: 1.5em;
     background-color: rgb(251, 235, 51) !important;
     clip-path: polygon(91% 8%, 100% 0, 100% 100%, 88% 93%, 90% 100%, 0 100%, 6% 90%, 0 92%, 0 0, 94% 0);
     z-index: 999;
+}
+
+.island-code .close{
+    cursor: pointer;
+    display: block;
+    float: right;
+    font-size: 2rem;
+    color: #106DDD;
+    transform: translate(10px, -5px);
 }
 
 .island-code img{
@@ -188,9 +205,11 @@ section h2{
 
 
 aside{
+    position: relative;
     background:#09123C;
     color: #97DCFE;
     padding: 1rem;
+    transition: transform 0.25s ease-in-out;
 }
 
 aside header{
@@ -233,6 +252,11 @@ aside li span{
     margin-left: auto;
 }
 
+aside .close{
+    display: none;
+}
+
+
 .settings{
     grid-template-columns: 1fr;
     background:#09123C !important;
@@ -259,4 +283,80 @@ aside li span{
     padding-left: 1rem;
     padding-right: 1rem;
     height: 3rem;
+}
+
+@media only screen and (max-width: 1150px){
+
+    body{
+        overflow-x: hidden;
+    }
+
+    h1{
+        background-color: #58d647;
+        color: #FFF;
+        text-align:center;
+        font-size: 2rem;
+        padding: 1em;
+    }
+
+    main{
+        width: 100vw;
+    }
+    section{
+        width: 100%;
+        grid-template-columns: repeat(3, auto);
+        grid-auto-rows: auto;
+    }
+
+    section h2{
+        margin: 0;
+    }
+
+    section > div{
+        height: 80px !important;
+        width: 80px !important;
+        justify-self: center;
+    }
+
+    .TRIGGER{
+        font-size: 1rem;
+        padding: 8px 0 0 24px;
+    }
+
+    aside{
+        position: fixed;
+        left: 100%;
+        padding-left: 50px;
+        width:100vw;
+        height: 100vh;
+        z-index: 9999;
+        overflow: hidden
+    }
+
+    aside .close{
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+
+    .island-code{
+        position: fixed;
+        bottom: 20px;
+        height: 4.5em;
+        width: 90%;
+        padding: 0.8em 1em 1em 1em;
+        font-size: 1em;
+        background-color: rgb(251, 235, 51) !important;
+        clip-path: polygon(91% 8%, 100% 0, 100% 100%, 88% 93%, 90% 100%, 0 100%, 6% 90%, 0 92%, 0 0, 94% 0);
+        z-index: 999;
+    }
+
+    .island-code .close{
+        font-size: 1.5em;
+        transform: translate(5px, 0px);
+    }
+    
 }
