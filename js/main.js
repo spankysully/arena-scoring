@@ -64,7 +64,7 @@ settings1 : {
         'When Triggered Transmit On':'CH 01'        
     },
     two:{
-        '*** This mutator counts players/deaths. MUST cover full map. ***' :'',
+        '*** This mutator counts players. MUST cover full map. ***' :'',
         'Allow Weapon Fire': 'YES',
         'Enabled At Game Start': 'NO',
         'Safe Team': '1',
@@ -100,6 +100,11 @@ settings1 : {
     six:{
         '*** A Round Settings Device could also be used for this purpose':'',
         'End Round When Receiving From:': 'CH 06'
+    },
+    seven:{
+        '*** This mutator counts deaths. MUST cover full map. ***' :'',
+        'Allow Weapon Fire': 'YES',
+        'On Player Leaving Zone Transmit On': 'CH 03'
     }
 },
 
