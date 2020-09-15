@@ -69,7 +69,7 @@ settings1 : {
         'Enabled At Game Start': 'NO',
         'Safe Team': '1',
         'Enable When Receiving From': 'CH 01',
-        'On Player Entering Zone Transmit On': 'CH 02'
+        'On Player Entering Zone Transmit On': 'CH 02',
     },
     three:{
         '*** This tracker recreates the Last Man Standing setting ***' :'',
@@ -104,7 +104,13 @@ settings1 : {
         '*** This mutator counts deaths. MUST cover full map. ***' :'',
         'Allow Weapon Fire': 'YES',
         'On Player Leaving Zone Transmit On': 'CH 03'
-    }
+    },
+    eight:{
+        '*** This is only a backup to end the round ***' :'',
+        'Delay': '5 SECONDS',
+        'Trigger When Receiving From': 'CH 04',
+        'When Triggered Transmit On':'CH 06'        
+    },
 },
 
 //SETTINGS TOP 5
