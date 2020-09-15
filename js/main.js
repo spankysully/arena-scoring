@@ -69,8 +69,7 @@ settings1 : {
         'Enabled At Game Start': 'NO',
         'Safe Team': '1',
         'Enable When Receiving From': 'CH 01',
-        'On Player Entering Zone Transmit On': 'CH 02',
-        'On Player Leaving Zone Transmit On': 'CH 03',
+        'On Player Entering Zone Transmit On': 'CH 02'
     },
     three:{
         '*** This tracker recreates the Last Man Standing setting ***' :'',
