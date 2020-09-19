@@ -124,6 +124,7 @@ settings1 : {
     },
      two:{
         '*** This tracker recreates the Last Man Standing setting ***' :'',
+        'Assign On Game Start': 'NO',
         'Stat To Track': 'CHANNEL',
         'Target Value': '1',
         'Sharing': 'ALL',
@@ -160,6 +161,7 @@ settings1 : {
     },
      two:{
         '*** This tracker recreates the Last Man Standing setting ***' :'',
+        'Assign On Game Start': 'NO',
         'Stat To Track': 'CHANNEL',
         'Target Value': '1',
         'Sharing': 'ALL',
