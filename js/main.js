@@ -205,7 +205,6 @@ settings1 : {
     three:{
         '*** This trigger turns off the scoring mutator ***' :'',
         'Delay': '1 SECOND',
-        'Transmit Every X Triggers': '3',
         'Trigger When Receiving From': 'CH 11',
         'When Triggered Transmit On': 'CH 13'
     }
